@@ -11,15 +11,8 @@ const Homepage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // const res = await axios.get("/api/posts");
-      // console.log(res);
-      // setPosts(res.data);
-
-      fetch("http://localhost:5000/api/posts")
-        .then((res) => res.json())
-        .then((data) => {
-          setPosts(data);
-        });
+      const res = await axios.get("http://localhost:5000/api/posts");
+      setPosts(res.data);
     };
     fetchPosts();
   }, []);

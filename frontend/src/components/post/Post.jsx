@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 const Post = ({ post }) => {
   return (
     <div className="post">
-      <img className="postImg" src={post.photo} alt="" />
+      {post.photo ? (
+        <img className="postImg" src={post.photo} alt="" />
+      ) : (
+        <img
+          className="singlePostImg"
+          src="https://images.pexels.com/photos/4916559/pexels-photo-4916559.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          alt=""
+        />
+      )}
       <div className="postInfo">
         <div className="postCats">
           {post.categories.map((c) => (
@@ -12,7 +20,7 @@ const Post = ({ post }) => {
           ))}
         </div>
         <span className="postTitle">
-          <Link to="/post/abc" className="link">
+          <Link to={`/post/${post._id}`} className="link">
             {post.title}
           </Link>
         </span>
