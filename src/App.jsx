@@ -22,7 +22,7 @@ function App() {
           element={currentUser ? <Homepage /> : <Register />}
         />
         <Route path="/login" element={currentUser ? <Homepage /> : <Login />} />
-        <Route path="/post/:id" element={Single} />
+        <Route path="/post/:id" element={<Single />} />
         <Route path="/write" element={currentUser ? <Write /> : <Login />} />
         <Route
           path="/settings"
