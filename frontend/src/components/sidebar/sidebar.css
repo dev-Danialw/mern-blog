@@ -109,6 +109,7 @@
 .sidebarList {
   list-style-type: none;
   margin-bottom: 30px;
+  padding-left: 0;
 }
 
 .sidebarListItem {
@@ -116,6 +117,9 @@
   width: 50%;
   margin-top: 15px;
   cursor: pointer;
+
+  text-decoration: none;
+  color: inherit;
 }
 
 .sidebarSocial {
