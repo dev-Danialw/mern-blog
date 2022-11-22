@@ -1,10 +1,12 @@
 import "./sidebar.css";
 
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../../context/Context";
 
 const Sidebar = () => {
+  const { user } = useContext(Context);
   const [cat, setCat] = useState([]);
 
   useEffect(() => {
@@ -19,10 +21,14 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
-        <img
-          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+        {user.profilePic != undefined ? (
+          <img src={user.profilePic} alt="" />
+        ) : (
+          <img
+            src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049__340.png"
+            alt=""
+          />
+        )}
         <p>
           Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
           amet ex esse.Sunt eu ut nostrud id quis proident.
