@@ -8,6 +8,7 @@ import { Context } from "../../context/Context";
 const Sidebar = () => {
   const { user } = useContext(Context);
   const [cat, setCat] = useState([]);
+  const PF = "http://localhost:5000/images/";
 
   useEffect(() => {
     const getCat = async () => {
@@ -21,13 +22,8 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
-        {user.profilePic != undefined ? (
-          <img src={user.profilePic} alt="" />
-        ) : (
-          <img
-            src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049__340.png"
-            alt=""
-          />
+        {user.profilePic && (
+          <img className="topImg" src={PF + user.profilePic} alt="" />
         )}
         <p>
           Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit

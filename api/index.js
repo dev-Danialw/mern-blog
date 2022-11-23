@@ -35,7 +35,8 @@ app.use("/api/categories", categoryRoute);
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  .connect(process.env.MONGO_URL)
+
   .then(() => {
     app.listen(5000, () => {
       console.log("Connected to DB & Backend Running!");
